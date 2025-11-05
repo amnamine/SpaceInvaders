@@ -16,3 +16,4 @@ func spawn_enemies():
 			e.died.connect(_on_enemy_died)
 func _on_enemy_died(value):
 	score += value
+	$CanvasLayer/UI.update_score(score)
