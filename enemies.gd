@@ -41,3 +41,9 @@ func explode():
 	died.emit(5)
 	await $AnimationPlayer.animation_finished
 	queue_free()
+
+
+func _on_area_entered(area):
+	if area.name == "Player":
+		queue_free()
+		area.shield -= 1 # Replace with function body.

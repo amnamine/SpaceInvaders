@@ -19,7 +19,7 @@ script = ExtResource("1_nltto")
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
 
-[node name="ShiedlBar" type="TextureProgressBar" parent="HBoxContainer"]
+[node name="ShieldBar" type="TextureProgressBar" parent="HBoxContainer"]
 custom_minimum_size = Vector2(80, 16)
 layout_mode = 2
 nine_patch_stretch = true

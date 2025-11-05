@@ -72,7 +72,10 @@ size = Vector2(16, 14)
 
 [node name="Player" type="Area2D"]
 script = ExtResource("1_sweqy")
+speed = null
+cooldown = null
 bullet_scene = ExtResource("2_2hs0m")
+max_shield = null
 
 [node name="Ship" type="Sprite2D" parent="."]
 texture = ExtResource("1_4flbx")
@@ -92,4 +95,5 @@ shape = SubResource("RectangleShape2D_4flbx")
 [node name="GunCooldown" type="Timer" parent="."]
 one_shot = true
 
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="timeout" from="GunCooldown" to="." method="_on_gun_cooldown_timeout"]
