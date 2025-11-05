@@ -72,8 +72,6 @@ size = Vector2(16, 14)
 
 [node name="Player" type="Area2D"]
 script = ExtResource("1_sweqy")
-speed = null
-cooldown = null
 bullet_scene = ExtResource("2_2hs0m")
 max_shield = null
 

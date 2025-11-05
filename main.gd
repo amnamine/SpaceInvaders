@@ -5,7 +5,7 @@ var enemy = preload("res://enemies.tscn")
 var score = 0
 
 func _ready():
-#	spawn_enemies()
+	spawn_enemies()
 	start_button.show()
 	game_over.hide()
 
