@@ -5,7 +5,7 @@ var enemy = preload("res://enemies.tscn")
 var score = 0
 
 func _ready():
-	spawn_enemies()
+	#spawn_enemies()
 	start_button.show()
 	game_over.hide()
 
@@ -32,3 +32,10 @@ func new_game():
 	$CanvasLayer/UI.update_score(score)
 	$Player.start()
 	spawn_enemies()
+
+func _on_player_died():
+	get_tree().call_group("enemies", "queue_free")
+	game_over.show()
+	await get_tree().create_timer(2).timeout
+	game_over.hide()
+	start_button.show()
