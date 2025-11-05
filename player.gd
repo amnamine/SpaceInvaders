@@ -31,11 +31,13 @@ func _process(delta):
 
 
 func _ready():
-	start()
+	pass
 
 func start():
 	position = Vector2(screensize.x / 2, screensize.y - 64)
 	$GunCooldown.wait_time = cooldown
+	set_shield(max_shield) # This resets the shield
+	show()                 # This makes the player visible again
 
 func shoot():
 	if not can_shoot:
