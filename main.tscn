@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://dy2ymuvs3hjvx"]
+[gd_scene load_steps=10 format=3 uid="uid://dy2ymuvs3hjvx"]
 
 [ext_resource type="Script" uid="uid://furffoygv2yb" path="res://main.gd" id="1_h2yge"]
 [ext_resource type="Texture2D" uid="uid://rchjjl424sck" path="res://Mini Pixel Pack 3/Space_BG (2 frames) (64 x 64).png" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://dlpepciio623v" path="res://player.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://ct5am850544gm" path="res://ui.tscn" id="4_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://co7wai2ar7ulv" path="res://Mini Pixel Pack 3/UI objects/START (48 x 8).png" id="5_lquwl"]
+[ext_resource type="Texture2D" uid="uid://lihr286ltoy8" path="res://Mini Pixel Pack 3/UI objects/GAME_OVER (72 x 8).png" id="6_7mycd"]
 
 [sub_resource type="Animation" id="Animation_1bvp3"]
 length = 0.001
@@ -65,3 +67,21 @@ autoplay = "scroll"
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="UI" parent="CanvasLayer" instance=ExtResource("4_1bvp3")]
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Start" type="TextureButton" parent="CanvasLayer/CenterContainer"]
+layout_mode = 2
+texture_normal = ExtResource("5_lquwl")
+
+[node name="GameOver" type="TextureRect" parent="CanvasLayer/CenterContainer"]
+layout_mode = 2
+texture = ExtResource("6_7mycd")
+
+[connection signal="shield_changed" from="Player" to="CanvasLayer/UI" method="update_shield"]
+[connection signal="pressed" from="CanvasLayer/CenterContainer/Start" to="." method="_on_start_pressed"]

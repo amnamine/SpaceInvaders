@@ -1,10 +1,13 @@
 extends Node2D
-
+@onready var start_button = $CanvasLayer/CenterContainer/Start
+@onready var game_over = $CanvasLayer/CenterContainer/GameOver
 var enemy = preload("res://enemies.tscn")
 var score = 0
 
 func _ready():
-	spawn_enemies()
+#	spawn_enemies()
+	start_button.show()
+	game_over.hide()
 
 func spawn_enemies():
 	for x in range(9):
@@ -17,3 +20,15 @@ func spawn_enemies():
 func _on_enemy_died(value):
 	score += value
 	$CanvasLayer/UI.update_score(score)
+
+
+func _on_start_pressed():
+	start_button.hide()
+	new_game()
+	
+
+func new_game():
+	score = 0
+	$CanvasLayer/UI.update_score(score)
+	$Player.start()
+	spawn_enemies()

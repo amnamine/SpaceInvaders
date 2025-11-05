@@ -96,4 +96,5 @@ shape = SubResource("RectangleShape2D_4flbx")
 one_shot = true
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="died" from="." to="." method="_on_player_died"]
 [connection signal="timeout" from="GunCooldown" to="." method="_on_gun_cooldown_timeout"]

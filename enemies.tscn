@@ -154,5 +154,6 @@ autoplay = "bounce"
 [node name="ShootTimer" type="Timer" parent="."]
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="died" from="." to="." method="_on_player_died"]
 [connection signal="timeout" from="MoveTimer" to="." method="_on_move_timer_timeout"]
 [connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
